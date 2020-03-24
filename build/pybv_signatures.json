@@ -1,0 +1,1 @@
+{"bv::segmentdepthimage": [{"name": "bv.segmentdepthimage", "arg": "depth_image, camera_matrix[, imedge]", "ret": "retval, imedge"}]}

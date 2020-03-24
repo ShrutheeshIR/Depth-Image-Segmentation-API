@@ -1,0 +1,20 @@
+import cv2
+import numpy as np
+import sys
+sys.path.append('build')
+import bv
+import time
+
+
+cammat = np.array([[525.0,0,320], [0,525.0,240],[0,0,1]])
+
+for i in range(400,500):
+    t1= time.time()
+    im = cv2.imread('/home/olorin/Desktop/IISc/TSDF/tsdf-fusion-python/data/frame-000' + str(i) + '.depth.png', 2|4)
+
+    siz, imm = bv.segmentdepthimage(im, cammat)
+    print(time.time()-t1)
+    print(siz)
+    cv2.imshow('IMA', imm)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
