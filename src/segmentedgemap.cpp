@@ -58,7 +58,7 @@ void labelMap(const cv::Mat& rgb_image, const cv::Mat& depth_image, const cv::Ma
         for (size_t i = 0u; i < contours.size(); ++i) {
         const double area = cv::contourArea(contours[i]);
         constexpr int kNoParentContour = -1;
-        if (area < 100) {
+        if (area < 200) {
             const int parent_contour = hierarchy[i][3];
             if (parent_contour == kNoParentContour) {
             // Assign black color to areas that have no parent contour.
@@ -202,7 +202,7 @@ void labelMap(const cv::Mat& rgb_image, const cv::Mat& depth_image, const cv::Ma
 
     // Remove small segments from segments vector.
     for (size_t i = 0u; i < segments->size();) {
-    if ((*segments)[i].points.size() < 100) {
+    if ((*segments)[i].points.size() < 200) {
         segments->erase(segments->begin() + i);
         } else {
             ++i;
